@@ -1,0 +1,40 @@
+import React from 'react';
+import TopAvatar from '../../assets/images/TopAvatar.svg';
+import { Circle, Flex, HStack, Image, Text, VStack } from '@chakra-ui/react';
+import BottomAvatar from '../../assets/images/Bottom/BottomAvatar.svg'
+import { useDispatch } from 'react-redux';
+import { addPent } from "../../redux/action/pent/pentA";
+
+const BottomTop = () => {
+
+    const dispatch = useDispatch()
+    const pent = 'pant.glb'
+    const selectPent = () => {
+        dispatch(addPent(pent))
+    }
+
+    return (
+        <HStack alignItems={'flex-start'} p={'0'} spacing={'0'}>
+            <VStack position={{base: 'absolute', md: 'unset'}} bottom={'0'} bgColor={'#222127'} flex={'1'} alignItems={'flex-start'}>
+                <VStack w={'609px'} borderColor={'#2D2C34'} borderWidth={'2px'} alignItems={'flex-start'} borderRadius={'10px'} p={'7'}>
+                    <Text textTransform={'uppercase'}>Bottom style</Text>
+                    <Flex flexWrap={'wrap'} className={''} alignItems={'flex-start'} justifyContent={'space-between'} w={'full'}>
+                        {/* {colorArry.map((ind, color) => {
+                        <Circle width={'40px'} height={'40px'} bg={JSON.stringify(color.BGcolor)} key={ind} color='white' className='color_code'>
+                            {color.name}
+                        </Circle>
+                    })} */}
+                        <Circle onClick={() => selectPent()} my={'2'} px={'3'} py={'1'} bg={'#646367'} color='white' borderWidth={'2px'} borderColor={'white'}>
+                            <Image src={BottomAvatar} w={'100px'} h={'115px'} />
+                        </Circle>
+                    </Flex>
+                </VStack>
+            </VStack>
+            {/* <VStack flex={'1'} justifyContent={'center'} alignItems={'center'}>
+                <Image src={TopAvatar} w={'509px'} h={'518px'} objectFit={'contain'} />
+            </VStack> */}
+        </HStack>
+    )
+}
+
+export default BottomTop

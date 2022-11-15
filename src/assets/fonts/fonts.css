@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url(./MontserratAlternates-Regular.otf);
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  
+  @media (min-width: 1200px) {
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      /* background: #3182ce; */
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+    }
+  }
+  
+  .css-1r4vtzz, .css-48ayfv {
+    min-width: 20vw;
+  }
+  
+  
+  html {
+    scroll-behavior: smooth;
+  }

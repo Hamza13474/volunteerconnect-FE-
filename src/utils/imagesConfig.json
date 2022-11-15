@@ -1,0 +1,64 @@
+{
+    "mouth": [
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg",
+            "id": "1"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg",
+            "id": "2"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg",
+            "id": "3"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg",
+            "id": "4"
+        }
+    ],
+
+    "eyes": [
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg",
+            "id": "1"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg"
+        }
+    ],
+
+    "hairs": [
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg",
+            "id": "1"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg"
+        },
+        { 
+            "name": "Banana", 
+            "imageUrl": "banana.jpg"
+        }
+    ]
+}
