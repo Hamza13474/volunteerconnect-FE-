@@ -65,7 +65,6 @@ const AllNGO = () => {
                             </GridItem>
                         )
                     })}
-                    ferfer
                 </Grid>
             </Stack>
             <Footer />

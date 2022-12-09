@@ -125,7 +125,9 @@ const TasksDetails = () => {
     }
     ///val2[1.1.0.1] 0
     console.log(isApplied, '121212++++')
-
+    const tesss = data?.thearticle
+    const worddata  = JSON.parse(JSON.stringify([tesss]));
+    console.log(worddata[0],"2312312312312")
 
     return (
         <>
@@ -223,12 +225,30 @@ const TasksDetails = () => {
                         }
                     </HStack>
                     <Divider orientation='horizontal' />
-                    <Image src={`${Api_URL}/storage/ngoimage/${data?.image}`} h={'7 0vh'} w={'full'} />
-                    <Box py={'10'}>
-                        <Text>
-                            {data?.task_desc}
-                        </Text>
-                    </Box>
+                    <Image src={`${Api_URL}/storage/ngoimage/${data?.image}`} h={'60vh'} w={'full'} />
+                    <Text py={'10'}>
+                        {data?.task_desc}
+                    </Text>
+                    <Divider orientation='horizontal' />
+                    <div className="read-article-paragraph" dangerouslySetInnerHTML={{__html: data?.thearticle}}></div>
+                    <Divider orientation='horizontal' />
+                    <VStack mt={'50px'} w={'full'} alignItems={'flex-start'} py={'16'}>
+                        <Heading fontWeight={'400'} size={{ base: 'sm', md: 'lg', xl: 'lg' }}>About NGO</Heading>
+                        <Divider orientation='horizontal' />
+
+                        <VStack pb={'5'}>
+                            <Text>Location:</Text>
+                            {/* <Text>Address</Text> */}
+                        </VStack>
+                        <VStack pb={'5'}>
+                            <Text>Description:</Text>
+                            {/* <Text>Description</Text> */}
+                        </VStack>
+                        <VStack pb={'5'}>
+                            <Text>Mission Statement:</Text>
+                            {/* <Text>Description</Text> */}
+                        </VStack>
+                    </VStack>
                 </VStack>
                 <VStack flex={'1'} border={'1px'} borderColor={'#c1c1c1'} borderRadius={'5px'} alignItems={'flex-start'} pt={'4'} pl={'4'}>
                     <Box pb={'10'}>
