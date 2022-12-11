@@ -8,6 +8,7 @@ import Countdown from 'react-countdown';
 import Certificate from '../../assets/Certificate.pdf';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import NetworkSteps from './NetworkSteps';
 
 const TasksDetails = () => {
     const [data, setData] = useState([]);
@@ -126,8 +127,8 @@ const TasksDetails = () => {
     ///val2[1.1.0.1] 0
     console.log(isApplied, '121212++++')
     const tesss = data?.thearticle
-    const worddata  = JSON.parse(JSON.stringify([tesss]));
-    console.log(worddata[0],"2312312312312")
+    const worddata = JSON.parse(JSON.stringify([tesss]));
+    console.log(worddata[0], "2312312312312")
 
     return (
         <>
@@ -230,27 +231,11 @@ const TasksDetails = () => {
                         {data?.task_desc}
                     </Text>
                     <Divider orientation='horizontal' />
-                    <div className="read-article-paragraph" dangerouslySetInnerHTML={{__html: data?.thearticle}}></div>
+                    <div className="read-article-paragraph" dangerouslySetInnerHTML={{ __html: data?.thearticle }}></div>
                     <Divider orientation='horizontal' />
-                    <VStack mt={'50px'} w={'full'} alignItems={'flex-start'} py={'16'}>
-                        <Heading fontWeight={'400'} size={{ base: 'sm', md: 'lg', xl: 'lg' }}>About NGO</Heading>
-                        <Divider orientation='horizontal' />
 
-                        <VStack pb={'5'}>
-                            <Text>Location:</Text>
-                            {/* <Text>Address</Text> */}
-                        </VStack>
-                        <VStack pb={'5'}>
-                            <Text>Description:</Text>
-                            {/* <Text>Description</Text> */}
-                        </VStack>
-                        <VStack pb={'5'}>
-                            <Text>Mission Statement:</Text>
-                            {/* <Text>Description</Text> */}
-                        </VStack>
-                    </VStack>
                 </VStack>
-                <VStack flex={'1'} border={'1px'} borderColor={'#c1c1c1'} borderRadius={'5px'} alignItems={'flex-start'} pt={'4'} pl={'4'}>
+                <VStack maxH={'fit-content'} h={'fit-content'} flex={'1'} border={'1px'} borderColor={'#c1c1c1'} borderRadius={'5px'} alignItems={'flex-start'} pt={'4'} pl={'4'}>
                     <Box pb={'10'}>
                         <Heading size={'xs'}>Datas</Heading>
                         <Text>Start Date and Time <br />
@@ -289,6 +274,9 @@ const TasksDetails = () => {
                     </Box>
                 </VStack>
             </Stack>
+            <VStack pb={'20'} px={{ base: '5', md: '10', lg: '14', xl: '60' }} >
+                <NetworkSteps />
+            </VStack>
             <Footer />
 
         </>

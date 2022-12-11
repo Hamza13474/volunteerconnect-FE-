@@ -130,7 +130,7 @@ const Header = () => {
                             Login
                         </Button>
                     }
-                    <Button onClick={() => navigate('/donateus')} h='40px' w={'100px'} bg='transparent' borderWidth={'1px'} borderRadius={'5px'} borderColor={'#008c00'} variant='outline'>
+                    <Button onClick={() => navigate('/donateus')} h='40px' w={'150px'} bg='#008c00' color={'white'} _hover={{ color: '#008c00', bg: 'transparent' }} borderWidth={'1px'} borderRadius={'5px'} borderColor={'#008c00'} variant='outline'>
                         Donate us
                     </Button>
                 </HStack>
