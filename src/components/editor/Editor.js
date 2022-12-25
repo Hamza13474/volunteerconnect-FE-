@@ -23,10 +23,11 @@ class TextEditor extends Component {
     const { editorState } = this.state;
     
     return (
-      <div>
+      <div className='fffffffffffffffffff'>
         <Editor
-          wrapperClassName="demo-wrapper"
+          wrapperClassName="demo-wrapper editor___input"
           editorClassName="demo-editor"
+          placeholder='Enter Task Description'
           onEditorStateChange={this.onEditorStateChange}
         />
         <textarea

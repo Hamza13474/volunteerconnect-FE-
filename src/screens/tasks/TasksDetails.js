@@ -63,7 +63,26 @@ const TasksDetails = () => {
     }, [])
 
 
+    const [checkVolunteerApplied, setCheckVolunteerApplied] = useState(null);
 
+    useEffect(() => {
+        const registerUser = async () => {
+            await axios
+                .get(`${Api_URL}/api/get-task-applied-count/${tid}`)
+                .then((res) => {
+                    setCheckVolunteerApplied(res.data?.Count);
+                })
+                .catch((err) => {
+                    Toast.error(err?.response?.data.msg, {
+                        position: "top-right",
+                        autoClose: 2000,
+                    });
+                    console.log(err?.response?.data.msg)
+                })
+        }
+        registerUser();
+    }, [])
+    console.log(checkVolunteerApplied,'raza')
 
     const addUserVolunteer = async () => {
         const payload = {
@@ -100,6 +119,7 @@ const TasksDetails = () => {
     const hendlesubmit = () => {
         addUserVolunteer();
         onClose();
+        window.location.reload();
     }
 
     useEffect(() => {
@@ -150,8 +170,11 @@ const TasksDetails = () => {
                         {data?.title}
                     </Heading>
                     <Divider orientation='horizontal' my={'5'} />
+                    <Heading display={'flex'} size={'md'} fontWeight={'400'}><Text>Total Volunteers Applied: &nbsp; {checkVolunteerApplied}</Text></Heading>
+                    <Divider orientation='horizontal' my={'5'} />
+
                     <HStack justifyContent={'space-between'} dir={['row', 'row']} w={'full'}>
-                        <Heading display={'flex'} size={'sm'} fontWeight={'400'}>ORGANIZATION: &nbsp; {dataD[0]?.name} </Heading>
+                    <Heading display={'flex'} size={'sm'} fontWeight={'400'}>ORGANIZATION: &nbsp; {dataD[0]?.name} </Heading>
                         {userRole == 'Volunteer' ?
                             <>
                                 {
@@ -163,7 +186,7 @@ const TasksDetails = () => {
                                                     <Text>Applied</Text>
                                                     :
                                                     <>
-                                                        <Button onClick={onOpen}>Apply as a volunteer</Button>
+                                                        <Button onClick={onOpen} background={'#FFA500'} _hover={{ color: 'black' }}>I want to help</Button>
                                                         <Modal isOpen={isOpen} onClose={onClose} isCentered>
                                                             <ModalOverlay />
                                                             <ModalContent>
@@ -227,9 +250,9 @@ const TasksDetails = () => {
                     </HStack>
                     <Divider orientation='horizontal' />
                     <Image src={`${Api_URL}/storage/ngoimage/${data?.image}`} h={'60vh'} w={'full'} />
-                    <Text py={'10'}>
+                    {/* <Text py={'10'}>
                         {data?.task_desc}
-                    </Text>
+                    </Text> */}
                     <Divider orientation='horizontal' />
                     <div className="read-article-paragraph" dangerouslySetInnerHTML={{ __html: data?.thearticle }}></div>
                     <Divider orientation='horizontal' />
@@ -237,7 +260,7 @@ const TasksDetails = () => {
                 </VStack>
                 <VStack maxH={'fit-content'} h={'fit-content'} flex={'1'} border={'1px'} borderColor={'#c1c1c1'} borderRadius={'5px'} alignItems={'flex-start'} pt={'4'} pl={'4'}>
                     <Box pb={'10'}>
-                        <Heading size={'xs'}>Datas</Heading>
+                        <Heading size={'xs'}>Date</Heading>
                         <Text>Start Date and Time <br />
                             {data?.st_date}
                         </Text>
@@ -275,7 +298,7 @@ const TasksDetails = () => {
                 </VStack>
             </Stack>
             <VStack pb={'20'} px={{ base: '5', md: '10', lg: '14', xl: '60' }} >
-                <NetworkSteps />
+                <NetworkSteps TasksDetails={TasksDetails} />
             </VStack>
             <Footer />
 

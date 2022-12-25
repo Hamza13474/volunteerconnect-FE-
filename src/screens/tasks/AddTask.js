@@ -137,7 +137,7 @@ const AddTask = () => {
                     <Input onChange={(e) => setVolunteersCount(e?.target?.value)} value={volunteersCount} placeholder='How many volunteers do you need for the Opportunity?' type={'text'} mb={'5'} borderRadius={'0'} py={'6'} color={'white'} />
                     <Input value={getid} type={'hidden'} />
                     <TextEditor onEditorChange={setTheArticle} />
-                    <Textarea onChange={(e) => setorGanizationalDescription(e?.target?.value)} value={organizationalDescription} rows={'10'} placeholder='Enter Task Description' borderRadius={'0'} color={'white'} className={'footer___input'}></Textarea>
+                    <Textarea onChange={(e) => setorGanizationalDescription(e?.target?.value)} value={organizationalDescription} rows={'10'} placeholder='Enter Short Description' borderRadius={'0'} color={'white'} className={'footer___input'}></Textarea>
                     <Stack direction={['column', 'row']} py={'5'} w={'full'}>
                         <VStack flex={'1'} alignItems={'flex-start'}>
                             <Text mb='8px'>Select Start Date and Time</Text>

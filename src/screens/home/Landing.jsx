@@ -1,6 +1,6 @@
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, Heading, HStack, Image, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useDisclosure, VStack } from '@chakra-ui/react';
 import { ChevronLeftIcon, InfoIcon } from '@chakra-ui/icons';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import headingBg from '../../assets/images/headingBg.jpg';
@@ -12,6 +12,9 @@ import slider3 from '../../assets/images/slider3.png';
 import vc from '../../assets/images/vc.jpeg';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import axios from 'axios';
+import { useState } from 'react';
+import { Api_URL } from '../../utils/ApiURL';
 
 
 const Landing = () => {
@@ -27,13 +30,44 @@ const Landing = () => {
         }
     ];
 
-    let postedData = {
-        savedform: [
-            {
-                peoples: "peoples"
-            }
-        ]
-    };
+    const [ngoCount, setGetNgoCount] = useState();
+    const [volCount, setGetVolCount] = useState();
+    const [taskCount, setGetTaskCount] = useState();
+
+    const getNgoCount = () => {
+        axios?.get(`${Api_URL}/api/get-ngo-count`)?.then((res) => {
+            setGetNgoCount(res?.data?.Ngo);
+        }).catch((err) => {
+            console.log(err, 'err');
+        })
+    }
+
+    const getVolCount = () => {
+        axios?.get(`${Api_URL}/api/get-vol-count`)?.then((res) => {
+            setGetVolCount(res?.data?.Count);
+        }).catch((err) => {
+            console.log(err, 'err');
+        })
+    }
+
+    const getTaskCount = () => {
+        axios?.get(`${Api_URL}/api/get-task-count`)?.then((res) => {
+            setGetTaskCount(res?.data?.Count);
+        }).catch((err) => {
+            console.log(err, 'err');
+        })
+    }
+
+
+
+    useEffect(() => {
+        getNgoCount();
+        getVolCount();
+        getTaskCount();
+    }, [])
+
+
+
 
     return (
         <>
@@ -85,29 +119,29 @@ const Landing = () => {
                                 <HStack pt={'10'} w={'full'} justifyContent={'space-around'} pb={'10'}>
                                     <Box textAlign={'center'}>
                                         <Heading color={'red'} size={{ base: 'sm', md: 'lg', xl: '3xl' }}>
-                                            1.3M
+                                            {ngoCount}
                                         </Heading>
-                                        <Text color={'black'}>monthly visitors</Text>
+                                        <Text color={'black'}>Registered NGO's</Text>
                                     </Box>
                                     <Box textAlign={'center'}>
                                         <Heading color={'green'} size={{ base: 'sm', md: 'lg', xl: '3xl' }}>
-                                            17.5M
+                                            {volCount}
                                         </Heading>
-                                        <Text color={'black'}>volunteers connected</Text>
+                                        <Text color={'black'}>Volunteers Connected</Text>
                                     </Box>
                                 </HStack>
                                 <HStack w={'full'} justifyContent={'space-around'}>
-                                    <Box textAlign={'center'}>
+                                    {/* <Box textAlign={'center'}>
                                         <Heading color={'blue'} size={{ base: 'sm', md: 'lg', xl: '3xl' }}>
                                             140.9K
                                         </Heading>
                                         <Text color={'black'}>non profits</Text>
-                                    </Box>
+                                    </Box> */}
                                     <Box textAlign={'center'}>
                                         <Heading color={'orange'} size={{ base: 'sm', md: 'lg', xl: '3xl' }}>
-                                            10M
+                                            {taskCount}
                                         </Heading>
-                                        <Text color={'black'}>volunteers needed</Text>
+                                        <Text color={'black'}>Total Tasks</Text>
                                     </Box>
                                 </HStack>
                             </VStack>

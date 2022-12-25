@@ -2,17 +2,22 @@ import { CheckCircleIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { Divider, Heading, HStack, Image, List, ListIcon, ListItem, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 
-const NetworkSteps = () => {
+const NetworkSteps = ({ TasksDetails }) => {
     return (
         <>
             <VStack w={'full'} alignItems={'flex-start'} py={'16'}>
-                <Heading fontWeight={'400'} size={{ base: 'sm', md: 'lg', xl: 'lg' }}>About Volunteer Connect</Heading>
-                <Divider orientation='horizontal' />
-                <VStack pb={'5'}>
-                    <Text>
-                        Since 2021, VolunteerConnect has put the power of technology to good use by enabling the social sector to unlock over $14 billion worth of volunteer time. The award-winning nonprofit service has complemented and co-existed with commercial technologies to become the web’s largest and most popular volunteer recruiting platform. It serves thousands of nonprofits, a million interested volunteers a month, and has generated over $40 million in mission-related revenue from its legacy corporate volunteering product YourMatch.
-                    </Text>
-                </VStack>
+                {TasksDetails ?
+                    "" :
+                    <>
+                        <Heading fontWeight={'400'} size={{ base: 'sm', md: 'lg', xl: 'lg' }}>About Volunteer Connect</Heading>
+                        <Divider orientation='horizontal' />
+                        <VStack pb={'5'}>
+                            <Text>
+                                Since 2021, VolunteerConnect has put the power of technology to good use by enabling the social sector to unlock over $14 billion worth of volunteer time. The award-winning nonprofit service has complemented and co-existed with commercial technologies to become the web’s largest and most popular volunteer recruiting platform. It serves thousands of nonprofits, a million interested volunteers a month, and has generated over $40 million in mission-related revenue from its legacy corporate volunteering product YourMatch.
+                            </Text>
+                        </VStack>
+                    </>
+                }
                 <VStack pb={{ base: '5', md: '10', lg: '14', xl: '20' }} borderTop={'1px'} borderColor={'green'} pt={{ base: '5', md: '10', lg: '14', xl: '10' }} pl={{ base: '5', md: '10', lg: '14', xl: '20' }} pr={{ base: '5', md: '10', lg: '14', xl: '20' }} w={{ base: 'full', md: 'full', lg: 'full' }} m={'auto'}>
                     <Heading textColor={'green.400'} textAlign={'left'} pt={'10'} size={{ base: 'sm', md: 'md' }}>
                         Vision

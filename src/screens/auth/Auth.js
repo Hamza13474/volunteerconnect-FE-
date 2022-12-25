@@ -85,22 +85,35 @@ const Auth = () => {
             await axios
                 .post(`${Api_URL}/api/user-login`, data)
                 .then((res) => {
-                    toast({
-                        title: 'Account created.',
-                        description: "Login user successfuly",
-                        status: 'success',
-                        duration: 2000,
-                        isClosable: true,
-                        position: "top"
-                    });
-                    setData(res.data);
-                    localStorage.setItem('role', res.data.user_role);
-                    localStorage.setItem('user_id', res.data.user_id);
-                    localStorage.setItem('user_name', res.data.user_name);
-
-                    navigate('/')
+                    if (res?.data?.status === 200) {
+                        setData(res.data);
+                        localStorage.setItem('role', res.data.user_role);
+                        localStorage.setItem('user_id', res.data.user_id);
+                        localStorage.setItem('user_name', res.data.user_name);
+                        toast({
+                            title: 'User login successfuly.',
+                            description: "Login user successfuly",
+                            status: 'success',
+                            duration: 2000,
+                            isClosable: true,
+                            position: "top"
+                        });
+                        navigate('/')
+                        console.log('asdasd');
+                    } else if (res?.data?.status === 300) {
+                        console.log('else');
+                        toast({
+                            title: 'Error.',
+                            description: "credentials are not correct",
+                            status: 'error',
+                            duration: 2000,
+                            isClosable: true,
+                            position: "top"
+                        });
+                    }
                 })
                 .catch((err) => {
+                    console.log('catchhhhhhhhh');
                     Toast.error(err?.response?.data.msg, {
                         position: "top-right",
                         autoClose: 2000,

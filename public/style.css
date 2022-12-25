@@ -97,3 +97,19 @@ input::placeholder {
     width: 40%;
   }
 }
+
+.fffffffffffffffffff{
+  width: 100%;
+}
+.public-DraftStyleDefault-block{
+  padding: 0px 10px;
+}
+
+.editor___input{
+    border: 1px solid white;
+    max-width: 100%;
+}
+.editor___input .public-DraftEditorPlaceholder-inner{
+  margin: 10px 10px;
+}
+
